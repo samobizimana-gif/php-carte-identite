@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg: white;
+    --secbg: hsl(0, 3%, 79%);
+    --btn: #00d300;
+    --hover: green;
+    --text: black;
+}
+
+html{
+    overflow: hidden;
+    font-size: 90%;
+    background: var(--bg);
+}
+
+body {
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+body .all{
+    background: var(--secbg);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ident {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.all .carte #photo{
+    position: relative;
+    width: 145px;
+    height: 165px;
+    background: rgb(102, 255, 0);
+    border: 3px dashed var(--btn);
+}
+
+.ident{
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 0 0 var(--btn);
+}
+.ident .names{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.names p{
+    padding: 5px;
+    background: var(--bg);
+    text-align: left;
+    border-radius: 5px;
+}
+.enBas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .2rem;
+}
+.infos {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    text-align: left;
+    padding: 10px;
+    box-shadow: 5px 0 0 0 var(--btn);
+}
+
+.btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: var(--btn);
+}
+
+.btn button:last-child,
+.btn button:first-child{
+    background: var(--hover);
+}
+
+.btn button:last-child:hover,
+.btn button:first-child:hover{
+    background: var(--btn);
+}
+
