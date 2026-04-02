@@ -72,10 +72,16 @@ body .all{
 .infos {
     display: flex;
     flex-direction: column;
-    gap: .6rem;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     box-shadow: 5px 0 0 0 var(--btn);
+}
+.infos p{
+    padding: 5px;
+    background: var(--bg);
+    border-radius: 5px;
+    color: var(--text);
+    font-weight: bold;
 }
 
 .btn{
@@ -102,3 +108,10 @@ body .all{
     background: var(--btn);
 }
 
+.time{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 3rem;
+    padding-left: 10px;
+}

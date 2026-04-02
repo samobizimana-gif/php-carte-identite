@@ -82,8 +82,8 @@ if (isset($_GET['numero'])) {
                     </div>
                     <div class="time">
                         <p><strong>Delivré à:</strong><?php echo $personne['zoneRes'] ?></p>
-                        <p><strong>Delivré par:</strong><?php echo "Chef de zone" ?></p>
-                        <p><strong>Delivré à:</strong><?php echo $personne['zoneRes'] ?></p>
+                        <p><strong>Le :</strong> <?php echo date("d/m/Y", strtotime($personne['dateEnregistrement'])); ?></p>
+                        <p><strong>par:</strong><?php echo "Chef de zone <br>" . $personne['zoneRes'] ?></p>
 
                     </div>
                 </div>

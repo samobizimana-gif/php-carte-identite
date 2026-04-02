@@ -17,6 +17,23 @@ $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+    $nomPhoto = "";
+
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+
+        $photo = $_FILES['photo'];
+        $nomPhoto = time() . "_" . $photo['name']; // nom unique
+        $tmpName = $photo['tmp_name'];
+
+        $dossier = "uploads/";
+
+        if (!is_dir($dossier)) {
+            mkdir($dossier);
+        }
+
+        move_uploaded_file($tmpName, $dossier . $nomPhoto);
+    }
+
     // Récupération des données
     $numeroCarte = $_POST['numeroCarte'] ?? '';
     $nom = $_POST['nom'] ?? '';
@@ -32,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $residenceActuel = $_POST['residenceActuel'] ?? '';
     $nationalite = $_POST['nationalite'] ?? '';
     $sexe = $_POST['sexe'] ?? '';
+    $nomPhoto = $_POST['photo'];
 
     // Vérification des champs
     if (
@@ -53,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $stmt->close();
 
             // Préparation de la requête sécurisée
-            $stmt = $conn->prepare("INSERT INTO personne (numeroCarte, nom, prenom, dateNaissance, pere, mere, province, commune, zoneRes, etatCivil, fonction, residenceActuel, nationalite, sexe) 
+            $stmt = $conn->prepare("INSERT INTO personne (numeroCarte, nom, prenom, dateNaissance, pere, mere, province, commune, zoneRes, etatCivil, fonction, residenceActuel, nationalite, sexe, nomPhoto) 
                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // Vérifier si la préparation a réussi
@@ -74,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $fonction,
                     $residenceActuel,
                     $nationalite,
-                    $sexe
+                    $sexe,
                 );
 
                 // Exécution
@@ -123,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <input type="text" id="prenom" name="prenom" placeholder="prenom">
                     <input type="date" id="dateNaissance" name="dateNaissance">
 
-                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <input type="file" name="photo" id="fileInput" accept="image/*" style="display: none;">
                     <button id="chooseImage" type="button">Ajouter une photo</button>
                 </div>
             </div>
