@@ -30,8 +30,9 @@ function chargerCommunes() {
 
     commune.innerHTML = '<option value = "">--commune--</option>';
     let data = {
-        "bujumbura": ["muha", 'mukaza', 'ntahangwa'],
-        "gitega": ['gitega', 'giheta', 'muramvya'],
+        "Bujumbura": ["Bubanza", 'Bukinanyana', 'Cibitoke','Isare','Mpanda','Mugere','Mugina','Muhuta','Mukaza','Rwibaga'],
+        "Buhumuza" :['Butaganzwa','Butihinda','Cankuzo','Gisagara','Gisuru','Muyinga','Ruyigi',],
+        "Gitega": ['Bugendana','Gitega', 'giheta', 'muramvya'],
         "butanyerera": ['kayanza', 'ngozi', 'matongo']
     };
     if (data[province]) {
@@ -58,6 +59,8 @@ function genererNumero() {
         "bujumbura": "501",
         "gitega": "502",
         "butanyerera": "503"
+        "Burunga": "504"
+        "Buhumuza": "505"
     }
     let codeCommune = {
         "muha": "312",
